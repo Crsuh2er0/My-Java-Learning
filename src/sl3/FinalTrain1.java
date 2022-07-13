@@ -1,7 +1,7 @@
 package sl3;
 
 public class FinalTrain1 {
-    public static void main(String args[]){
+    public static void main(String[] args) {
         char a = '马';
         char b = '象';
         char c = '卒';

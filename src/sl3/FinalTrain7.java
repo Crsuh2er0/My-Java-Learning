@@ -1,7 +1,7 @@
 package sl3;
 
 public class FinalTrain7 {
-    public static void main(String args[]){
+    public static void main(String[] args) {
         int money = 10;
         double ypmin = 0.2;
         int usedtime = 30;

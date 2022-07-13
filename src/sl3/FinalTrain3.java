@@ -1,7 +1,7 @@
 package sl3;
 
 public class FinalTrain3 {
-    public static void main(String args[]){
+    public static void main(String[] args) {
         System.out.println("       个人基本信息\n" +
                 "-------------------------\n" +
                 "姓名：   李四\n" +

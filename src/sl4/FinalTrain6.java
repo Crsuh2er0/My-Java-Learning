@@ -1,9 +1,9 @@
 package sl4;
 
 public class FinalTrain6 {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         int year = 2022;
-        switch (year % 12){
+        switch (year % 12) {
             case 1:
                 System.out.println("鸡");
                 break;

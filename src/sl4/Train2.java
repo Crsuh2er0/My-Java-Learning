@@ -1,10 +1,10 @@
 package sl4;
 
 public class Train2 {
-    public static void main(String args[]){
+    public static void main(String[] args) {
         int month = 6;
         String season;
-        switch (month){
+        switch (month) {
             case 1:
                 season = "Winter";
             case 2:

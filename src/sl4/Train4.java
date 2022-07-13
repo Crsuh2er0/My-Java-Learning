@@ -1,12 +1,12 @@
 package sl4;
 
 public class Train4 {
-    public static void main(String args[]){
+    public static void main(String[] args) {
         int a = 1;
         int b = 1;
         int n = 53;
-        int tem,num;
-        for (int t=1;t<n - 1;t++){
+        int tem, num;
+        for (int t = 1; t < n - 1; t++) {
             tem = a + b;
             a = b;
             b = tem;

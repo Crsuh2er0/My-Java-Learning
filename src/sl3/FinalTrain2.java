@@ -1,7 +1,7 @@
 package sl3;
 
 public class FinalTrain2 {
-    public static void main(String args[]){
+    public static void main(String[] args) {
         System.out.println("      中国工商银行\n" +
                 "\n" +
                 "---------------------------\n" +
