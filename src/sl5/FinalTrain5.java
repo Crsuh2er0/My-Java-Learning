@@ -5,24 +5,24 @@ import java.util.Scanner;
 
 public class FinalTrain5 {
     static char[] line1 = new char[21];
-    static char[] line2 = new char[]{' ',' ','0',' ','1',' ','2',' ','3',' ','4',' ','5',' ','6',' ','7',' ','8',' ','9'};
-    static char[] line3 = new char[]{'0',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line4 = new char[]{'1',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line5 = new char[]{'2',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line6 = new char[]{'3',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line7 = new char[]{'4',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line8 = new char[]{'5',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line9 = new char[]{'6',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line10 = new char[]{'7',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line11 = new char[]{'8',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
-    static char[] line12 = new char[]{'9',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-',' ','-'};
+    static char[] line2 = new char[]{' ', ' ', '0', ' ', '1', ' ', '2', ' ', '3', ' ', '4', ' ', '5', ' ', '6', ' ', '7', ' ', '8', ' ', '9'};
+    static char[] line3 = new char[]{'0', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line4 = new char[]{'1', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line5 = new char[]{'2', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line6 = new char[]{'3', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line7 = new char[]{'4', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line8 = new char[]{'5', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line9 = new char[]{'6', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line10 = new char[]{'7', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line11 = new char[]{'8', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
+    static char[] line12 = new char[]{'9', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-', ' ', '-'};
     static char[] line13;
     static boolean over = false;
     static char[][] lines = new char[13][];
 
     public static void main(String[] args) {
         FinalTrain5 finalTrain5 = new FinalTrain5();
-        Arrays.fill(line1,'-');
+        Arrays.fill(line1, '-');
         line13 = line1;
 
         lines[0] = line1;
@@ -40,12 +40,15 @@ public class FinalTrain5 {
         lines[12] = line13;
 
         do {
-        System.out.println(finalTrain5.deepToString(lines));
-        System.out.println("请*输入棋子坐标：");
-        finalTrain5.input('*');
-        System.out.println(finalTrain5.deepToString(lines));
-        System.out.println("请o输入棋子坐标：");
-        finalTrain5.input('o');
+            System.out.println(finalTrain5.deepToString(lines));
+            System.out.println("请*输入棋子坐标：");
+            finalTrain5.input('*');
+            if (over) {
+                break;
+            }
+            System.out.println(finalTrain5.deepToString(lines));
+            System.out.println("请o输入棋子坐标：");
+            finalTrain5.input('o');
         } while (!over);
 
         System.out.println(finalTrain5.deepToString(lines));
@@ -62,17 +65,17 @@ public class FinalTrain5 {
 
     public String deepToString(char[][] charlist) {
         StringBuilder res = new StringBuilder();
-            for(int t = 0;t < charlist.length;t++) {
-                char[] list = charlist[t];
-                res.append(toString(list));
-                if (t != charlist.length - 1) {
-                    res.append("\n");
-                }
+        for (int t = 0; t < charlist.length; t++) {
+            char[] list = charlist[t];
+            res.append(toString(list));
+            if (t != charlist.length - 1) {
+                res.append("\n");
             }
+        }
         return res.toString();
     }
 
-    public void input(char player){
+    public void input(char player) {
         try {
             Scanner scanner = new Scanner(System.in);
             String command = scanner.nextLine();
@@ -94,14 +97,14 @@ public class FinalTrain5 {
             loc[0] += 2;
             loc[1] = loc[1] * 2 + 2;
 
-            if(lines[loc[0]][loc[1]] == '-'){
+            if (lines[loc[0]][loc[1]] == '-') {
                 lines[loc[0]][loc[1]] = player;
             } else {
                 System.out.println("输入错误，请重新输入！");
                 input(player);
                 return;
             }
-        } catch (Exception e){
+        } catch (Exception e) {
             System.out.println("输入错误，请重新输入！");
             input(player);
             return;
@@ -109,17 +112,17 @@ public class FinalTrain5 {
         judger();
     }
 
-    public void judger(){
+    public void judger() {
         //Vertical judger
-        for(int x = 2;x <= 20;x += 2){
-            for(int y = 2;y <= 7;y++){
-                if(
+        for (int x = 2; x <= 20; x += 2) {
+            for (int y = 2; y <= 7; y++) {
+                if (
                         lines[y][x] == lines[y + 1][x] &&
-                        lines[y + 1][x] == lines[y + 2][x] &&
-                        lines[y + 2][x] == lines[y + 3][x] &&
-                        lines[y + 3][x] == lines[y + 4][x] &&
+                                lines[y + 1][x] == lines[y + 2][x] &&
+                                lines[y + 2][x] == lines[y + 3][x] &&
+                                lines[y + 3][x] == lines[y + 4][x] &&
                                 lines[y][x] != '-'
-                ){
+                ) {
                     over = true;
                     return;
                 }
@@ -127,15 +130,15 @@ public class FinalTrain5 {
         }
 
         //Transverse judger
-        for(int x = 2;x <= 12;x += 2){
-            for(int y = 2;y <= 11;y += 1){
-                if(
+        for (int x = 2; x <= 12; x += 2) {
+            for (int y = 2; y <= 11; y += 1) {
+                if (
                         lines[y][x] == lines[y][x + 2] &&
                                 lines[y][x + 2] == lines[y][x + 4] &&
                                 lines[y][x + 4] == lines[y][x + 6] &&
                                 lines[y][x + 6] == lines[y][x + 8] &&
                                 lines[y][x] != '-'
-                ){
+                ) {
                     over = true;
                     return;
                 }
@@ -144,30 +147,30 @@ public class FinalTrain5 {
 
         //Oblique judger
         //Left Down
-        for(int x = 10;x <= 20;x += 2){
-            for(int y = 2;y <= 7;y++){
-                if(
+        for (int x = 10; x <= 20; x += 2) {
+            for (int y = 2; y <= 7; y++) {
+                if (
                         lines[y][x] == lines[y + 1][x - 2] &&
                                 lines[y + 1][x - 2] == lines[y + 2][x - 4] &&
                                 lines[y + 2][x - 4] == lines[y + 3][x - 6] &&
                                 lines[y + 3][x - 6] == lines[y + 4][x - 8] &&
                                 lines[y][x] != '-'
-                ){
+                ) {
                     over = true;
                     return;
                 }
             }
         }
         //Right Down
-        for(int x = 2;x <= 12;x += 2){
-            for(int y = 2;y <= 7;y++){
-                if(
+        for (int x = 2; x <= 12; x += 2) {
+            for (int y = 2; y <= 7; y++) {
+                if (
                         lines[y][x] == lines[y + 1][x + 2] &&
                                 lines[y + 1][x + 2] == lines[y + 2][x + 4] &&
                                 lines[y + 2][x + 4] == lines[y + 3][x + 6] &&
                                 lines[y + 3][x + 6] == lines[y + 4][x + 8] &&
                                 lines[y][x] != '-'
-                ){
+                ) {
                     over = true;
                     return;
                 }
